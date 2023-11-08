@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "689508132473",
+    "project_id": "campominado-30382",
+    "storage_bucket": "campominado-30382.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:689508132473:android:59aa96d41a89e34bad56a8",
+        "android_client_info": {
+          "package_name": "com.asimov.campominado.samuel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtp3OkwF6Eme4NdMAUQgJsy5gY6JRCdH0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:689508132473:android:920778f1f094af0bad56a8",
+        "android_client_info": {
+          "package_name": "com.example.campo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtp3OkwF6Eme4NdMAUQgJsy5gY6JRCdH0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
