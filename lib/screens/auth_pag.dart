@@ -42,22 +42,31 @@ class _AuthPageState extends State<AuthPage> {
             title: Container(
               child: Text(
                 'Campo Minado',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             backgroundColor: Color.fromARGB(255, 21, 30, 83),
             elevation: 0,
           ),
           Center(
-            child: SingleChildScrollView(
-              child: AuthForm(onSubmit: _handleSubmit),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SingleChildScrollView(
+                child: AuthForm(onSubmit: _handleSubmit),
+              ),
             ),
           ),
           if (_isLoading)
             Container(
               decoration: BoxDecoration(color: Colors.black.withOpacity(0.5)),
               child: Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+                ),
               ),
             )
         ],

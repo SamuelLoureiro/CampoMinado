@@ -39,6 +39,9 @@ class _AuthFormState extends State<AuthForm> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
+      ),
       margin: const EdgeInsets.all(20),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -50,14 +53,16 @@ class _AuthFormState extends State<AuthForm> {
                 userImagePicker(
                   onImagePick: _handleOnImagePick,
                 ),
-              const ColoredBox(color: Colors.white),
+              const SizedBox(height: 10),
               if (_formData.isSignup)
                 TextFormField(
                   key: const ValueKey('name'),
                   initialValue: _formData.name,
                   onChanged: (name) => _formData.name = name,
-                  decoration: const InputDecoration(labelText: 'Nome'),
-                  // ignore: no_leading_underscores_for_local_identifiers
+                  decoration: const InputDecoration(
+                    labelText: 'Nome',
+                    border: OutlineInputBorder(),
+                  ),
                   validator: (_name) {
                     final name = _name ?? '';
                     if (name.trim().length < 5) {
@@ -66,12 +71,15 @@ class _AuthFormState extends State<AuthForm> {
                     return null;
                   },
                 ),
+              const SizedBox(height: 10),
               TextFormField(
                 key: const ValueKey('email'),
                 initialValue: _formData.email,
                 onChanged: (email) => _formData.email = email,
-                decoration: const InputDecoration(labelText: 'E-mail'),
-                // ignore: no_leading_underscores_for_local_identifiers
+                decoration: const InputDecoration(
+                  labelText: 'E-mail',
+                  border: OutlineInputBorder(),
+                ),
                 validator: (_email) {
                   final email = _email ?? '';
                   if (!email.contains('@')) {
@@ -80,13 +88,16 @@ class _AuthFormState extends State<AuthForm> {
                   return null;
                 },
               ),
+              const SizedBox(height: 10),
               TextFormField(
                 key: const ValueKey('password'),
                 initialValue: _formData.password,
                 onChanged: (password) => _formData.password = password,
                 obscureText: true,
-                // ignore: prefer_const_constructors
-                decoration: InputDecoration(labelText: 'Senha'),
+                decoration: const InputDecoration(
+                  labelText: 'Senha',
+                  border: OutlineInputBorder(),
+                ),
                 validator: (_password) {
                   final password = _password ?? '';
                   if (password.length < 6) {
@@ -100,6 +111,10 @@ class _AuthFormState extends State<AuthForm> {
                 onPressed: _submit,
                 child: Text(
                   _formData.isLogin ? 'Entrar' : 'Cadastrar',
+                  style: TextStyle(color: Colors.white),
+                ),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.blue,
                 ),
               ),
               TextButton(
@@ -107,6 +122,7 @@ class _AuthFormState extends State<AuthForm> {
                   _formData.isLogin
                       ? 'Criar uma nova conta?'
                       : 'Já possui uma conta?',
+                  style: TextStyle(color: Colors.blue),
                 ),
                 onPressed: () {
                   setState(() {
