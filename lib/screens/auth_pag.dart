@@ -41,7 +41,7 @@ class _AuthPageState extends State<AuthPage> {
           AppBar(
             title: Container(
               child: Text(
-                'To-Do List',
+                'Campo Minado',
                 style: TextStyle(color: Colors.white),
               ),
             ),

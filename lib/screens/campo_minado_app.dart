@@ -1,6 +1,7 @@
 import 'package:campo/components/tabuleiro_widget.dart';
 import 'package:campo/models/explosao_exception.dart';
 import 'package:campo/models/tabuleiro.dart';
+import 'package:campo/servicos/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:campo/components/resultado_widget.dart';
 import '../models/campo.dart';
@@ -76,6 +77,75 @@ class _CampoMinadoAppState extends State<CampoMinadoApp> {
         appBar: ResultadoWidget(
           venceu: _venceu,
           onReiniciar: _reiniciar,
+        ),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                child: Text(
+                  'Dificuldade',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.star),
+                title: Text('Fácil'),
+                onTap: () {
+                  setState(() {
+                    _tabuleiro = Tabuleiro(
+                      linhas: 15,
+                      colunas: 15,
+                      qtdeBombas: 30,
+                    );
+                    _reiniciar();
+                  });
+                  Navigator.of(context).pop();
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.star_half),
+                title: Text('Médio'),
+                onTap: () {
+                  setState(() {
+                    _tabuleiro = Tabuleiro(
+                      linhas: 15,
+                      colunas: 15,
+                      qtdeBombas: 30,
+                    );
+                    _reiniciar();
+                  });
+                  Navigator.of(context).pop();
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.star_border),
+                title: Text('Difícil'),
+                onTap: () {
+                  setState(() {
+                    _tabuleiro = Tabuleiro(
+                      linhas: 15,
+                      colunas: 15,
+                      qtdeBombas: 30,
+                    );
+                    _reiniciar();
+                  });
+                  Navigator.of(context).pop();
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.exit_to_app),
+                title: Text('Logout'),
+                onTap: () => AuthService().logout(),
+              ),
+            ],
+          ),
         ),
         body: Container(
           color: Colors.grey,

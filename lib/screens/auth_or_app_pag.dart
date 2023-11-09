@@ -27,9 +27,7 @@ class AuthOrPag extends StatelessWidget {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const LoadingPage();
               } else {
-                return snapshot.hasData
-                    ? const CampoMinadoApp()
-                    : const AuthPage();
+                return snapshot.hasData ? CampoMinadoApp() : const AuthPage();
               }
             },
           );
